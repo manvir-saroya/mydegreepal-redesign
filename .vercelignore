@@ -1,0 +1,7 @@
+docs/
+tools/
+.impeccable/
+.playwright-cli/
+PRODUCT.md
+DESIGN.md
+*.md

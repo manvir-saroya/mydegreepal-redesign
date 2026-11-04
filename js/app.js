@@ -122,8 +122,10 @@
     if (/economics/i.test(p)) return { cls: 'hood-economics', name: 'Copper', field: 'Economics' };
     if (/management|business/i.test(p)) return { cls: 'hood-business', name: 'Drab', field: 'Business' };
     if (/public health|nursing/i.test(p)) return { cls: 'hood-health', name: 'Salmon', field: 'Public Health' };
+    // the degree type decides before subject words: "Political Science, B.A." is an arts degree
+    if (/\bB\.?\s?A\b/i.test(p)) return { cls: 'hood-arts', name: 'White', field: 'Arts and Letters' };
     if (/\bB\.?\s?S\b|science|biology|chemistry|physics|mathematics/i.test(p)) return { cls: 'hood-science', name: 'Golden yellow', field: 'Science' };
-    if (/\bB\.?\s?A\b|arts|history|english|literature|philosophy/i.test(p)) return { cls: 'hood-arts', name: 'White', field: 'Arts and Letters' };
+    if (/arts|history|english|literature|philosophy/i.test(p)) return { cls: 'hood-arts', name: 'White', field: 'Arts and Letters' };
     return null;
   }
 
@@ -154,7 +156,7 @@
         <div class="semesters">${plan.semesters.map(semesterHtml).join('')}</div>${marksHtml(plan)}${conferralHtml(plan)}`
       : doneHtml();
     root.innerHTML = headerHtml(plan)
-      + `<div class="hood"></div><div class="wrap">${hood ? `<p class="hood-caption smallcaps"><span><i></i>Hood color: ${esc(hood.name)} · ${esc(hood.field)}</span></p>` : ''}
+      + `<div class="hood"${hood ? ` title="${esc(hood.name)}: the ${esc(hood.field)} hood color"` : ''}></div><div class="wrap">
         <div class="sheet">${progressHtml(plan)}${controlsHtml(plan)}${adviceHtml(plan)}
           <div class="plan-grid"><div class="order">${order}</div>${railHtml(plan)}</div>
         </div></div>`;
@@ -290,10 +292,10 @@
 
   // required classes carry no mark; everything else is named in small caps
   function tagFor(item) {
-    if (item.code.startsWith('SLOT')) return '° Your pick';
+    if (item.code.startsWith('SLOT')) return '<span class="glyph" aria-hidden="true">°</span>Your pick';
     if (item.kind === 'prereq') return 'Prerequisite';
     if (item.kind === 'coreq') return 'Taken together';
-    if (item.kind === 'choice') return '‡ Swappable';
+    if (item.kind === 'choice') return '<span class="glyph" aria-hidden="true">‡</span>Swappable';
     return '';
   }
 
@@ -336,7 +338,7 @@
       <button class="course-row" type="button" data-row="${esc(item.code)}" aria-expanded="${open}">
         <span class="c-code">${esc(code)}</span>
         <span class="c-main"><span class="c-lead"><span class="c-title">${esc(item.title)}</span></span><span class="c-why">${esc(why)}</span></span>
-        <span class="c-tag">${esc(tag)}</span>
+        <span class="c-tag">${tag}</span>
         <span class="c-units">${esc(item.units)}<span class="sr-only"> units</span></span>
         ${chevron}
       </button>
@@ -369,10 +371,10 @@
 
   function conferralHtml(plan) {
     if (!plan.graduation || plan.undeclared) return '';
+    const line = ['Conferral of the Degree', state.audit.program].filter(Boolean).join(' · ');
     return `<div class="conferral"><div class="rule-double"></div>
-      <p class="smallcaps">Conferral of the Degree</p>
       <strong>${esc(plan.graduation)}</strong>
-      ${state.audit.program ? `<p class="program">${esc(state.audit.program)}</p>` : ''}
+      <p>${esc(line)}</p>
     </div>`;
   }
 

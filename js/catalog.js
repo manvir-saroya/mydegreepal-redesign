@@ -36,7 +36,7 @@
     if (c.crn) lines.push(`<p><b>Spring 2027 CRNs:</b> ${esc(c.crn.join(', '))}</p>`);
     return `<details><summary>
         <span class="c-code">${esc(code)}</span>
-        <span class="c-lead"><span class="c-title">${esc(c.t)}</span>${c.m & 1 ? '<span class="mark" aria-hidden="true">*</span><span class="sr-only">, on the Spring 2027 schedule</span>' : ''}</span>
+        <span class="c-lead"><span class="c-title">${esc(c.t)}</span>${c.m & 1 && $('when').value !== 's27' ? '<span class="mark" aria-hidden="true">*</span><span class="sr-only">, on the Spring 2027 schedule</span>' : ''}</span>
         <span class="catalog-units">${esc(c.u)} ${c.u === 1 ? 'unit' : 'units'}</span>
       </summary><div class="catalog-body">${lines.join('')}</div></details>`;
   }
@@ -46,6 +46,7 @@
     $('count').textContent = `${hits.length.toLocaleString()} ${hits.length === 1 ? 'course' : 'courses'}`;
     $('list').innerHTML = hits.slice(0, shown).map(row).join('') || '<p class="catalog-empty">' + ($('when').value === 'all' ? 'No courses match. Try a broader search.' : 'No courses match in this list. Try “All undergraduate courses”.') + '</p>';
     $('more').hidden = hits.length <= shown;
+    $('catalog-note').hidden = $('when').value === 's27';
   }
   function refresh() { shown = PAGE; render(); }
 
