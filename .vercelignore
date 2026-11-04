@@ -5,3 +5,5 @@ tools/
 PRODUCT.md
 DESIGN.md
 *.md
+tests/
+.github/
