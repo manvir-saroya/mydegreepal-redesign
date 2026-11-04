@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T06:09:53Z",
+  "title": "Design System: MyDegreePal",
+  "extensions": {
+    "colorMeta": {
+      "cover-navy": {
+        "role": "primary",
+        "displayName": "Regalia Navy",
+        "canonical": "#13284c",
+        "tonalRamp": [
+          "#000826",
+          "#0f2447",
+          "#2d4266",
+          "#4d6285",
+          "#6f83a5",
+          "#92a6c7",
+          "#b8cae9",
+          "#def0ff"
+        ]
+      },
+      "cover-deep": {
+        "role": "primary",
+        "displayName": "Deep Navy",
+        "canonical": "#0c1c38",
+        "tonalRamp": [
+          "#010922",
+          "#142541",
+          "#32425e",
+          "#51627e",
+          "#73839e",
+          "#97a6c0",
+          "#bccae2",
+          "#e2efff"
+        ]
+      },
+      "foil-gold": {
+        "role": "secondary",
+        "displayName": "Foil Gold",
+        "canonical": "#e2b547",
+        "tonalRamp": [
+          "#1a0500",
+          "#381f00",
+          "#593c00",
+          "#7d5b00",
+          "#a27c11",
+          "#c99e34",
+          "#efc35a",
+          "#ffe98a"
+        ]
+      },
+      "foil-bright": {
+        "role": "secondary",
+        "displayName": "Bright Foil",
+        "canonical": "#f0c95f",
+        "tonalRamp": [
+          "#180700",
+          "#352100",
+          "#563e00",
+          "#795d00",
+          "#9d7e21",
+          "#c4a13f",
+          "#ebc55c",
+          "#ffeb89"
+        ]
+      },
+      "ivory": {
+        "role": "neutral",
+        "displayName": "Program Ivory",
+        "canonical": "#f4efe2",
+        "tonalRamp": [
+          "#0d0b07",
+          "#27251f",
+          "#44423b",
+          "#646159",
+          "#868279",
+          "#a9a59a",
+          "#cdc9bd",
+          "#f3eee1"
+        ]
+      },
+      "ivory-mist": {
+        "role": "neutral",
+        "displayName": "Ivory Mist",
+        "canonical": "#c3cfe8",
+        "tonalRamp": [
+          "#070b14",
+          "#1f2531",
+          "#3b4251",
+          "#596172",
+          "#798296",
+          "#9ba5bb",
+          "#bec9e2",
+          "#e3efff"
+        ]
+      },
+      "program-white": {
+        "role": "neutral",
+        "displayName": "Program White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "desk-grey": {
+        "role": "neutral",
+        "displayName": "Desk Grey",
+        "canonical": "#e9ecf2",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242528",
+          "#404245",
+          "#5f6165",
+          "#808287",
+          "#a3a5aa",
+          "#c6c9cf",
+          "#ebeef4"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Navy Ink",
+        "canonical": "#14213d",
+        "tonalRamp": [
+          "#020921",
+          "#172440",
+          "#34425e",
+          "#53617d",
+          "#75839e",
+          "#98a5bf",
+          "#bdcae2",
+          "#e3efff"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#4a5571",
+        "tonalRamp": [
+          "#050a1c",
+          "#1c243a",
+          "#37415b",
+          "#56617d",
+          "#77829d",
+          "#9aa5bf",
+          "#bfc9e2",
+          "#e5eeff"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d5dae4",
+        "tonalRamp": [
+          "#090b0f",
+          "#23252a",
+          "#3f4248",
+          "#5e6168",
+          "#7f828a",
+          "#a1a5ae",
+          "#c4c9d3",
+          "#eaeff8"
+        ]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#858fa3",
+        "tonalRamp": [
+          "#070b15",
+          "#1f2531",
+          "#3b4251",
+          "#596172",
+          "#798396",
+          "#9ba5b9",
+          "#c0c9dc",
+          "#e6efff"
+        ]
+      },
+      "flag-red": {
+        "role": "tertiary",
+        "displayName": "Flag Red",
+        "canonical": "#a3311f",
+        "tonalRamp": [
+          "#2e0000",
+          "#540000",
+          "#7d1101",
+          "#a63523",
+          "#c95d4a",
+          "#eb8470",
+          "#ffab98",
+          "#ffd3c1"
+        ]
+      },
+      "hood-engineering": {
+        "role": "tertiary",
+        "displayName": "Engineering Orange",
+        "canonical": "#e8742a",
+        "tonalRamp": [
+          "#2a0000",
+          "#4f0000",
+          "#772000",
+          "#a03f00",
+          "#cb5f11",
+          "#f4813d",
+          "#ffa96d",
+          "#ffd29a"
+        ]
+      },
+      "hood-science": {
+        "role": "tertiary",
+        "displayName": "Science Golden Yellow",
+        "canonical": "#f2b705",
+        "tonalRamp": [
+          "#1d0300",
+          "#3d1c00",
+          "#5f3900",
+          "#845800",
+          "#aa7900",
+          "#d29b00",
+          "#fabf26",
+          "#ffe66a"
+        ]
+      },
+      "hood-arts": {
+        "role": "tertiary",
+        "displayName": "Arts White",
+        "canonical": "#f7f5f0",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#43423f",
+          "#62615e",
+          "#84827f",
+          "#a6a5a1",
+          "#cbc9c4",
+          "#f0eee9"
+        ]
+      },
+      "hood-economics": {
+        "role": "tertiary",
+        "displayName": "Economics Copper",
+        "canonical": "#b8692f",
+        "tonalRamp": [
+          "#240000",
+          "#471000",
+          "#6c2d00",
+          "#924c11",
+          "#ba6b32",
+          "#dd905d",
+          "#ffb686",
+          "#ffddb0"
+        ]
+      },
+      "hood-business": {
+        "role": "tertiary",
+        "displayName": "Business Drab",
+        "canonical": "#c4ad7c",
+        "tonalRamp": [
+          "#130900",
+          "#302304",
+          "#4f401e",
+          "#705f39",
+          "#948055",
+          "#b9a273",
+          "#ddc797",
+          "#ffecbf"
+        ]
+      },
+      "hood-health": {
+        "role": "tertiary",
+        "displayName": "Public Health Salmon",
+        "canonical": "#f2907c",
+        "tonalRamp": [
+          "#230000",
+          "#460e05",
+          "#6c2b1f",
+          "#93483a",
+          "#bc6756",
+          "#e68774",
+          "#ffac98",
+          "#ffd4c0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Landing H1, conferral term, plan cover title."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Order of Exercises, semester names, page titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Course titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text; tabular numerals."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tracked capitals: bylines, status words, control labels, panel headings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 2px rgba(20,33,61,.06), 0 18px 40px -24px rgba(20,33,61,.35)",
+        "purpose": "White interior sheet lifted off the desk grey."
+      },
+      {
+        "name": "specimen-page",
+        "value": "0 2px 4px rgba(4,10,24,.3), 0 24px 48px -12px rgba(4,10,24,.55)",
+        "purpose": "Rotated sample program on the navy cover."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "The single easing curve for every transition and animation."
+      },
+      {
+        "name": "unfold",
+        "value": "520ms, 14px rise + clip-path reveal, 60ms stagger steps (controls 60, title 120, semesters 180-420, conferral 480)",
+        "purpose": "Once, when a plan first opens."
+      },
+      {
+        "name": "cover-morph",
+        "value": "view-transition group 420ms, root cross-fade 260ms",
+        "purpose": "Cover closes into the plan band; skipped under reduced motion."
+      },
+      {
+        "name": "micro",
+        "value": "160ms colour/background, 120ms press, 200ms chevron rotation and dropzone tint",
+        "purpose": "State feedback on buttons, rows, segments, dropzone."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "960px"
+      },
+      {
+        "name": "phone",
+        "value": "680px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "The one primary action per view: upload, apply, start.",
+      "html": "<div style=\"background:#13284c;padding:20px\"><button class=\"ds-btn ds-btn-gold\">Upload your audit</button></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:650 15px/1.55 var(--sans);padding:10px 18px;border-radius:3px;border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink);cursor:pointer;transition:background-color 160ms var(--ease-out),border-color 160ms var(--ease-out),transform 120ms var(--ease-out)}.ds-btn:hover{border-color:var(--ink)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--cover);outline-offset:3px}.ds-btn-gold{background:var(--foil);border-color:var(--foil);color:var(--cover-deep)}.ds-btn-gold:hover{background:var(--foil-bright);border-color:var(--foil-bright)}.ds-btn-gold:focus-visible{outline-color:var(--foil)}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action on navy: print, start over.",
+      "html": "<div style=\"background:#13284c;padding:20px\"><button class=\"ds-btn ds-btn-ghost\">Print or save PDF</button></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:650 15px/1.55 var(--sans);padding:10px 18px;border-radius:3px;border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink);cursor:pointer;transition:background-color 160ms var(--ease-out),border-color 160ms var(--ease-out),transform 120ms var(--ease-out)}.ds-btn:hover{border-color:var(--ink)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--cover);outline-offset:3px}.ds-btn-ghost{background:transparent;border-color:var(--cover-line);color:var(--ivory)}.ds-btn-ghost:hover{border-color:var(--foil);background:rgba(226,181,71,.08)}.ds-btn-ghost:focus-visible{outline-color:var(--foil)}"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "custom",
+      "refersTo": "segment-selected",
+      "description": "Joined buttons for max units per semester; selected is navy.",
+      "html": "<div class=\"ds-seg\" role=\"group\"><button type=\"button\" aria-pressed=\"false\">12</button><button type=\"button\" aria-pressed=\"false\">15</button><button type=\"button\" aria-pressed=\"true\">16</button><button type=\"button\" aria-pressed=\"false\">18</button></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-seg{display:inline-flex;border:1px solid var(--rule-strong);border-radius:3px;font-family:var(--sans)}.ds-seg button{border:0;background:none;padding:7px 15px;font:650 16px var(--sans);color:var(--ink-2);cursor:pointer;transition:background-color 160ms var(--ease-out),color 160ms var(--ease-out)}.ds-seg button+button{border-left:1px solid var(--rule)}.ds-seg button:hover{color:var(--ink);background:var(--ground)}.ds-seg button[aria-pressed=true]{background:var(--cover);color:var(--ivory)}.ds-seg button:focus-visible{outline:2px solid var(--cover);outline-offset:3px}"
+    },
+    {
+      "name": "Dropzone",
+      "kind": "custom",
+      "refersTo": "button-gold",
+      "description": "Gold double-ruled frame on navy holding the upload button and privacy hint.",
+      "html": "<div style=\"background:#13284c;padding:24px\"><div class=\"ds-drop\"><span class=\"ds-drop-btn\">Upload your audit</span><p>Drop your saved audit here. It stays in your browser and is never uploaded.</p></div></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-drop{padding:26px 26px 22px;border:3px double var(--foil);display:grid;justify-items:start;gap:12px;font-family:var(--sans);transition:background-color 200ms var(--ease-out)}.ds-drop:hover{background:rgba(226,181,71,.08)}.ds-drop-btn{background:var(--foil);color:var(--cover-deep);font:650 16px var(--sans);padding:12px 22px;border-radius:3px}.ds-drop p{margin:0;font-size:14.5px;color:var(--ivory-2)}"
+    },
+    {
+      "name": "Semester Head",
+      "kind": "custom",
+      "refersTo": "sheet",
+      "description": "Roman numeral, display-serif semester name with its reference mark, status word and units, over a 1px ink rule.",
+      "html": "<div class=\"ds-sem\"><h2><span class=\"n\">I.</span>Spring 2027<span class=\"m\">*</span></h2><div class=\"meta\"><span class=\"sc\">Published schedule</span><span>16 units</span></div></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-sem{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px solid var(--ink);background:#fff;color:var(--ink);font-family:var(--sans)}.ds-sem h2{margin:0;font:400 30px/1.1 var(--display);letter-spacing:-.01em;display:flex;align-items:baseline;gap:12px}.ds-sem .n{font-size:18px;color:var(--ink-2);min-width:2.2em}.ds-sem .m{font-size:26px;color:var(--ink-2)}.ds-sem .meta{display:flex;align-items:baseline;gap:16px;font-size:14px;color:var(--ink-2);white-space:nowrap}.ds-sem .sc{font-size:11.5px;font-weight:650;letter-spacing:.14em;text-transform:uppercase}"
+    },
+    {
+      "name": "Course Row",
+      "kind": "custom",
+      "refersTo": "course-row",
+      "description": "Code, title with dotted leader, mark tag, units, chevron; reason beneath. Swappable rows carry the ‡ mark.",
+      "html": "<button class=\"ds-row\" type=\"button\"><span class=\"code\">CSE 108</span><span class=\"main\"><span class=\"lead\"><span class=\"title\">Full Stack Web Development</span></span><span class=\"why\">Upper-Division CSE Electives</span></span><span class=\"tag\"><span class=\"g\">‡</span>Swappable</span><span class=\"u\">4</span><svg class=\"chev\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 6l6 6-6 6\"/></svg></button>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-row{width:100%;display:grid;grid-template-columns:96px minmax(0,1fr) auto 34px 18px;gap:12px;align-items:baseline;background:#fff;border:0;border-bottom:1px solid var(--rule);text-align:left;padding:12px 4px;color:var(--ink);font-family:var(--sans);font-variant-numeric:tabular-nums;cursor:pointer;transition:background-color 160ms var(--ease-out)}.ds-row:hover{background:#f6f7fa}.ds-row:focus-visible{outline:2px solid var(--cover);outline-offset:3px}.ds-row .code{font-weight:700;font-size:14px;letter-spacing:.05em;white-space:nowrap}.ds-row .lead{display:flex;align-items:baseline;min-width:0}.ds-row .title{font-weight:500;font-size:16.5px}.ds-row .lead::after{content:'';flex:1;min-width:16px;margin-left:10px;border-bottom:1.5px dotted var(--rule-strong);transform:translateY(-5px)}.ds-row .why{display:block;font-size:14px;color:var(--ink-2)}.ds-row .tag{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}.ds-row .g{font:400 24px/0 var(--display);letter-spacing:0;vertical-align:-5px;margin-right:5px;color:var(--ink)}.ds-row .u{text-align:right;font-weight:650;font-size:16px}.ds-row .chev{width:14px;height:14px;color:var(--ink-2);align-self:center}"
+    },
+    {
+      "name": "Units Measure",
+      "kind": "custom",
+      "refersTo": "sheet",
+      "description": "Ink-only bar: solid earned, hatched in progress, outlined planned.",
+      "html": "<div class=\"ds-measure\"><div class=\"bar\" role=\"img\" aria-label=\"63 earned, 16 in progress, 48 planned of 120\"><span class=\"done\"></span><span class=\"now\"></span><span class=\"plan\"></span></div><div class=\"legend\"><span><i class=\"kd\"></i><b>63</b> units earned</span><span><i class=\"kn\"></i><b>16</b> in progress</span><span><i></i><b>48</b> planned</span><span><b>120</b> required</span></div></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-measure{display:grid;gap:10px;background:#fff;padding:16px;font-family:var(--sans);color:var(--ink)}.ds-measure .bar{display:flex;height:12px;gap:3px}.ds-measure .bar span{display:block;height:100%}.done{background:var(--ink);width:52%}.now{background:repeating-linear-gradient(135deg,var(--ink) 0 1.5px,transparent 1.5px 5px);box-shadow:inset 0 0 0 1.5px var(--ink);width:13%}.plan{box-shadow:inset 0 0 0 1.5px var(--ink);width:35%}.ds-measure .legend{display:flex;flex-wrap:wrap;gap:6px 26px;font-size:14.5px;color:var(--ink-2)}.ds-measure .legend b{color:var(--ink)}.ds-measure .legend i{display:inline-block;width:12px;height:12px;margin-right:7px;box-shadow:inset 0 0 0 1.5px var(--ink)}.ds-measure .kd{background:var(--ink)}.ds-measure .kn{background:repeating-linear-gradient(135deg,var(--ink) 0 1.5px,transparent 1.5px 5px)}"
+    },
+    {
+      "name": "Note Panel",
+      "kind": "card",
+      "refersTo": "sheet",
+      "description": "Rail panel: tracked-capital heading over a 3px double gold rule, then a soft-ink list.",
+      "html": "<div class=\"ds-panel\"><h2>Keep in mind</h2><ul><li>Schedules change. Check each semester's classes in UC Merced Connect before you register.</li><li>Review this plan with your advisor.</li></ul></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-panel{background:#fff;padding:16px;font:15px/1.55 var(--sans)}.ds-panel h2{margin:0 0 10px;font-size:12px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;padding-bottom:8px;border-bottom:3px double var(--foil);color:var(--ink)}.ds-panel ul{margin:0;padding-left:18px;display:grid;gap:7px;color:var(--ink-2)}"
+    },
+    {
+      "name": "Catalog Row",
+      "kind": "custom",
+      "refersTo": "course-row",
+      "description": "Details summary: code, title with leader and * mark, units.",
+      "html": "<details class=\"ds-cat\"><summary><span class=\"code\">CSE 100</span><span class=\"lead\"><span class=\"title\">Algorithm Design and Analysis</span><span class=\"mark\">*</span></span><span class=\"units\">4 units</span></summary><div class=\"body\"><p><b>Prerequisites:</b> CSE 015, CSE 030</p></div></details>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-cat{background:#fff;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);font-family:var(--sans);color:var(--ink)}.ds-cat summary{display:grid;grid-template-columns:104px minmax(0,1fr) 70px;gap:12px;align-items:baseline;padding:12px 4px;cursor:pointer;list-style:none;transition:background-color 160ms var(--ease-out)}.ds-cat summary::-webkit-details-marker{display:none}.ds-cat summary:hover,.ds-cat[open] summary{background:#f6f7fa}.ds-cat .code{font-weight:700;font-size:14px;letter-spacing:.05em}.ds-cat .lead{display:flex;align-items:baseline}.ds-cat .title{font-weight:500;font-size:16.5px}.ds-cat .lead::after{content:'';flex:1;min-width:16px;margin-left:10px;border-bottom:1.5px dotted var(--rule-strong);transform:translateY(-5px);order:1}.ds-cat .mark{order:2;margin-left:8px;font:400 19px var(--display);color:var(--ink-2)}.ds-cat .units{text-align:right;color:var(--ink-2);font-size:14px}.ds-cat .body{padding:4px 18px 18px 120px;background:#f6f7fa;color:var(--ink-2);font-size:15px}.ds-cat summary:focus-visible{outline:2px solid var(--cover);outline-offset:3px}"
+    },
+    {
+      "name": "Seal",
+      "kind": "custom",
+      "refersTo": "cover-navy",
+      "description": "Gold double-ruled circle stamp, On time (gold) or Late (salmon; carried defect, see DESIGN.md).",
+      "html": "<div style=\"background:#13284c;padding:20px\"><span class=\"ds-seal\">On<br>time</span></div>",
+      "css": ":host{--cover:#13284c;--cover-deep:#0c1c38;--cover-line:rgba(226,181,71,.42);--foil:#e2b547;--foil-bright:#f0c95f;--ivory:#f4efe2;--ivory-2:#c3cfe8;--paper:#fff;--ground:#e9ecf2;--ink:#14213d;--ink-2:#4a5571;--rule:#d5dae4;--rule-strong:#858fa3;--display:'Caslon Display','Libre Caslon Display',Georgia,serif;--sans:'Public Sans',-apple-system,'Segoe UI',Arial,sans-serif;--ease-out:cubic-bezier(0.23,1,0.32,1)}.ds-seal{display:grid;place-items:center;width:74px;height:74px;border-radius:50%;border:3px double var(--foil);color:var(--foil);text-align:center;font:750 11px/1.15 var(--sans);letter-spacing:.14em;text-transform:uppercase}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Commencement Program",
+    "overview": "The plan is the printed program for the student's own commencement: an Order of Exercises, one exercise per semester, closing on the Conferral of the Degree. A navy cover with gold foil frames the interior; the interior is a white sheet of program stock laid on a cool grey desk, so the page reads as an object. Hairline rules and dotted leaders set each course to its units, as in a printed programme.\n\nDensity is a calm reading column, not a dashboard. There are no status pills, no progress ring, no rounded cards. State is carried by printed reference marks and by stroke (solid, hatched, outlined), never by hue. The only discipline colour is the hood band under the cover.",
+    "keyCharacteristics": [
+      "Two stocks: navy cover (header, landing cover, plan band, page titles) and white interior.",
+      "Gold foil is the only accent: double rules, the one primary button, the active nav underline, panel headings.",
+      "Engraved display serif for headings and numerals of ceremony; one sans for every working word.",
+      "Reference marks (* † ‡ °) instead of coloured status.",
+      "Flat by default; a single paper shadow lifts the sheet and the specimen page."
+    ],
+    "rules": [
+      {
+        "name": "The One Gold Rule",
+        "body": "Gold is foil: rules, one primary action, accents on navy. It never fills a card and never marks state.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hood Is Not Data Rule",
+        "body": "Hood colour appears only as the 14px band under the plan cover. It never tints text, bars, marks or rows.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Measure Rule",
+        "body": "The units bar uses ink only: solid earned, hatched in progress, outlined planned.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Display serif for headings, numerals of ceremony (I. II. III.) and the marks; sans for everything else. No third face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Numerals are tabular everywhere so units and terms align down the leader column.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Lift Rule",
+        "body": "Only a sheet of program stock is lifted. Buttons, rows and panels never cast shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put status in a reference mark plus a word (* † ‡ °) and keep required items unmarked.",
+      "Do keep gold to foil roles; keep one gold button per view.",
+      "Do set course rows as code, title, dotted leader, units, with tabular numerals.",
+      "Do use the display serif for headings and ceremonial numerals, the sans for all working text.",
+      "Do use ink, hatch and outline to differentiate units; keep the sheet white on the desk grey.",
+      "Do use focus rings that match the surface: 2px navy on light, 2px gold on navy.",
+      "Do keep content fully visible without motion; wrap any new animation in the reduced-motion rule."
+    ],
+    "donts": [
+      "Don't use rounded cards, coloured status pills, or a progress ring or dial.",
+      "Don't colour data with hood velvet; it belongs only to the band.",
+      "Don't add shadows to anything but a sheet of paper.",
+      "Don't use UC Merced's logo, colours as branding, or any wording that implies endorsement; the independence line stays in the footer and on the cover.",
+      "Don't ship dynamic widths in a style attribute or <style> block; the CSP forbids it.",
+      "Don't add a third typeface or a weight above 400 to the display face."
+    ]
+  }
+}
