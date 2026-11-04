@@ -3,3 +3,5 @@
 .impeccable/config.local.json
 .DS_Store
 .vercel/
+.vercel
+.env*
