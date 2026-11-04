@@ -52,7 +52,9 @@
     if (!start && /^\d{4}$/.test(String(audit.startYear || '').trim())) start = Number(audit.startYear) * 3 + 2;
     if (!start) {
       const terms = audit.entries.filter((e) => classifyEntry(e) === 'earned').map((e) => parseTerm(e.term)).filter(Boolean);
-      if (terms.length) start = Math.min(...terms);
+      // a summer bridge class before the first Fall or Spring doesn't start the 8 semesters
+      const regular = terms.filter((t) => t % 3 !== 1);
+      if (terms.length) start = regular.length ? Math.min(...regular) : Math.min(...terms) + 1;
     }
     if (!start) return null;
     let i = start;
@@ -484,8 +486,12 @@
 
     // total units to reach the degree
     const { earnedUnits, inProgressUnits, requiredUnits } = audit.metrics;
-    const earned = earnedUnits || 0;
-    const current = inProgressUnits || 0;
+    // without the audit's totals, add up the classes it lists (a repeated class counts once)
+    const listedUnits = (hows) => [...history.values()]
+      .reduce((s, list) => s + Math.max(0, ...list.filter((e) => hows.includes(e.how)).map((e) => e.units || 0)), 0);
+    const earned = earnedUnits ?? listedUnits(['earned', 'review']);
+    const current = inProgressUnits ?? listedUnits(['in-progress']);
+    if (earnedUnits == null) warnings.push('We couldn’t read your total earned units from the audit, so elective units may be off. Check the units section of your audit.');
     const degreeUnits = requiredUnits || 120;
     const plannedUnits = () => [...plan.values()].reduce((s, i) => s + i.units, 0);
     const short = degreeUnits - earned - current - plannedUnits();
@@ -560,10 +566,9 @@
         const c = courses[item.code];
         if (!c) return idx !== firstIndex;
         if (!offeredIn(c, idx, firstIndex)) return false;
-        if (c.rc && c.rc.length) {
-          const min = Math.min(...c.rc.map((r) => STANDING[r] ?? 0));
-          if (unitsSoFar < min) return false;
-        }
+        // standings like "Second Baccalaureate" don't apply to an undergraduate
+        const ranks = (c.rc || []).map((r) => STANDING[r]).filter((n) => typeof n === 'number');
+        if (ranks.length && unitsSoFar < Math.min(...ranks)) return false;
         if (!c.p) return true;
         const ok = new Set([...placed, ...inBundle]);
         return nodeMet(c.p, ok) || [...collect(c.p, new Set())].every((d) => ok.has(d));
@@ -684,7 +689,8 @@
       target: targetIndex ? termName(targetIndex) : null,
       // without a major the audit is incomplete, so no graduation promise can be made
       undeclared: !!audit.undeclared,
-      onTime: targetIndex && !audit.undeclared ? (graduationIndex === null || graduationIndex <= targetIndex) : null,
+      // classes that never fit mean the plan doesn't finish, whatever its last term
+      onTime: targetIndex && !audit.undeclared ? (!stuck.length && (graduationIndex === null || graduationIndex <= targetIndex)) : null,
       classCount: allItems.filter((i) => !isSlot(i)).length,
       slotCount: allItems.filter(isSlot).length,
       flexibleCount: allItems.filter((i) => isSlot(i) || i.kind === 'choice').length,

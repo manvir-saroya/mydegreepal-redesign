@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Course Catalog — MyDegreePal</title>
   <meta name="description" content="Search UC Merced courses, prerequisites, and when each class is usually offered.">
+  <link rel="canonical" href="https://mydegreepal.vercel.app/catalog.html">
+  <meta name="theme-color" content="#13284c">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="fonts/libre-caslon-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/public-sans.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +18,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f3c04d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/></svg></span>
+        <span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2b547" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/></svg></span>
         MyDegreePal
       </a>
       <nav class="site-nav" aria-label="Main">
@@ -22,25 +28,32 @@
     </div>
   </header>
 
-  <main id="main" class="wrap">
-    <div class="page-head">
-      <h1>Course catalog</h1>
-      <p id="catalog-sub">Loading courses…</p>
+  <main id="main">
+    <div class="page-cover">
+      <div class="wrap">
+        <h1>Course catalog</h1>
+        <p id="catalog-sub">Loading courses…</p>
+      </div>
     </div>
-    <div class="filters">
-      <input id="q" type="search" placeholder="Search by name, code, or CRN" aria-label="Search courses">
-      <select id="subject" aria-label="Subject"><option value="">All subjects</option></select>
-      <select id="when" aria-label="When offered">
-        <option value="s27">Spring 2027 schedule</option>
-        <option value="fall">Recently offered in Fall</option>
-        <option value="spring">Recently offered in Spring</option>
-        <option value="summer">Recently offered in Summer</option>
-        <option value="all">All undergraduate courses</option>
-      </select>
+    <div class="wrap">
+      <div class="sheet">
+        <div class="filters">
+          <input id="q" type="search" placeholder="Search by name, code, or CRN" aria-label="Search courses">
+          <select id="subject" aria-label="Subject"><option value="">All subjects</option></select>
+          <select id="when" aria-label="When offered">
+            <option value="s27">Spring 2027 schedule</option>
+            <option value="fall">Recently offered in Fall</option>
+            <option value="spring">Recently offered in Spring</option>
+            <option value="summer">Recently offered in Summer</option>
+            <option value="all">All undergraduate courses</option>
+          </select>
+        </div>
+        <p class="result-count" id="count" role="status"></p>
+        <div class="catalog-list" id="list"></div>
+        <div class="more"><button class="btn" id="more" type="button" hidden>Show more</button></div>
+        <p class="catalog-note"><b>*</b> On the published Spring 2027 schedule.</p>
+      </div>
     </div>
-    <p class="result-count" id="count" role="status"></p>
-    <div class="catalog-list" id="list"></div>
-    <div class="more"><button class="btn" id="more" type="button" hidden>Show more</button></div>
   </main>
 
   <footer class="site-footer">

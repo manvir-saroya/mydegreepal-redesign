@@ -8,6 +8,22 @@
   const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
   const GRADE_POINTS = { 'A+': 4, A: 4, 'A-': 3.7, 'B+': 3.3, B: 3, 'B-': 2.7, 'C+': 2.3, C: 2, 'C-': 1.7, 'D+': 1.3, D: 1, 'D-': 0.7, F: 0 };
   const MAX_BYTES = 5 * 1024 * 1024;
+  const MAX_DEPTH = 1000; // far deeper than any audit; keeps the recursive walks below safe
+  // HTML's implied end tags: a new tag closes these if still open, searching down to a boundary
+  const TABLE_CELL = { close: ['td', 'th'], stop: ['tr', 'table'] };
+  const TABLE_SECTION = { close: ['thead', 'tbody', 'tfoot', 'tr', 'td', 'th'], stop: ['table'] };
+  const PARAGRAPH = { close: ['p'], stop: ['button', 'table', 'td', 'th', 'caption', 'object'] };
+  const IMPLIED = {
+    td: TABLE_CELL, th: TABLE_CELL,
+    tr: { close: ['tr', 'td', 'th'], stop: ['thead', 'tbody', 'tfoot', 'table'] },
+    thead: TABLE_SECTION, tbody: TABLE_SECTION, tfoot: TABLE_SECTION,
+    li: { close: ['li', 'p'], stop: ['ul', 'ol'] },
+    option: { close: ['option'], stop: ['select', 'datalist', 'optgroup'] },
+    optgroup: { close: ['option', 'optgroup'], stop: ['select'] },
+  };
+  for (const tag of ['address', 'article', 'aside', 'blockquote', 'details', 'div', 'dl', 'fieldset', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hr', 'main', 'nav', 'ol', 'p', 'pre', 'section', 'table', 'ul']) {
+    IMPLIED[tag] = IMPLIED[tag] || PARAGRAPH;
+  }
 
   function decode(text) {
     const named = { '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'" };
@@ -22,8 +38,9 @@
   function parseHtml(html) {
     const rootNode = { tag: 'root', attrs: {}, children: [] };
     const stack = [rootNode];
-    const clean = html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '');
-    for (const token of clean.match(/<!--[\s\S]*?-->|<![^>]*>|<[^>]*>|[^<]+/g) || []) {
+    // comments and raw-text elements are skipped in document order, so neither can hide the other
+    const clean = html.replace(/<!--[\s\S]*?(?:-->|$)|<(script|style|textarea|template|noscript)(?=[\s/>])[^>]*>[\s\S]*?(?:<\/\1\s*>|$)/gi, (m, tag) => (tag ? '' : m));
+    for (const token of clean.match(/<!--[\s\S]*?(?:-->|$)|<![^>]*>|<[^>]*>|[^<]+/g) || []) {
       if (token.startsWith('<!')) continue;
       const close = token.match(/^<\/\s*([\w:-]+)/);
       if (close) {
@@ -38,9 +55,17 @@
         attrs[a[1].toLowerCase()] = decode(a[2] ?? a[3] ?? a[4]);
       }
       const node = { tag: open[1].toLowerCase(), attrs, children: [] };
+      const implied = IMPLIED[node.tag];
+      if (implied) {
+        let at = 0;
+        for (let i = stack.length - 1; i > 0 && !implied.stop.includes(stack[i].tag); i--) {
+          if (implied.close.includes(stack[i].tag)) at = i;
+        }
+        if (at > 0) stack.length = at;
+      }
       stack[stack.length - 1].children.push(node);
       if (!VOID_TAGS.has(node.tag) && !token.endsWith('/>')) stack.push(node);
-      if (stack.length > 160) throw new Error('This audit has an unsupported layout. Save the audit results page again.');
+      if (stack.length > MAX_DEPTH) throw new Error('This audit has an unsupported layout. Save the audit results page again.');
     }
     return rootNode;
   }
@@ -205,11 +230,12 @@
 
   /** How a transcript row counts: earned, in-progress, no-credit, or review (transfer/exam). */
   function classifyEntry(e) {
-    if (/[XD]/.test(e.flags)) return 'no-credit';
+    // ">D" duplicate and ">X" excluded rows don't count
+    if ((e.flags || '').toUpperCase().split(/[\s,>]+/).some((f) => f === 'D' || f === 'X')) return 'no-credit';
     if (e.grade === 'PL') return 'planned';
     if (e.grade === 'IP' || e.grade === 'RG') return 'in-progress';
     if (['YES', 'TA', 'TB', 'TC', 'T', 'TR', 'AP', 'PR', 'P', 'S'].includes(e.grade)) return 'review';
-    if ((e.units !== null && e.units <= 0) || ['F', 'W', 'NP', 'U', 'NC'].includes(e.grade)) return 'no-credit';
+    if ((e.units !== null && e.units <= 0) || ['F', 'W', 'NP', 'U', 'NC', 'I', 'NR', 'NG'].includes(e.grade)) return 'no-credit';
     return e.units !== null && e.grade in GRADE_POINTS ? 'earned' : 'review';
   }
 

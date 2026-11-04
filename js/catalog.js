@@ -13,13 +13,16 @@
 
   function matches() {
     const q = $('q').value.trim().toLowerCase().replace(/\s+/g, '');
+    // course codes are zero-padded, so "CSE 30" also searches for "CSE 030"
+    const qCode = window.DegreeAudit.normalizeCode($('q').value).toLowerCase().replace(/\s+/g, '');
     const subject = $('subject').value;
     const when = $('when').value;
     return courses.filter(([code, c]) => {
       if (subject && !code.startsWith(`${subject} `)) return false;
       if (when !== 'all' && !(c.m & BIT[when])) return false;
       if (!q) return true;
-      return `${code}${c.t}${(c.crn || []).join('')}`.toLowerCase().replace(/\s+/g, '').includes(q);
+      const text = `${code}${c.t}${(c.crn || []).join('')}`.toLowerCase().replace(/\s+/g, '');
+      return text.includes(q) || text.includes(qCode);
     });
   }
 
@@ -33,8 +36,7 @@
     if (c.crn) lines.push(`<p><b>Spring 2027 CRNs:</b> ${esc(c.crn.join(', '))}</p>`);
     return `<details><summary>
         <span class="c-code">${esc(code)}</span>
-        <span class="c-title">${esc(c.t)}</span>
-        ${c.m & 1 ? '<span class="chip chip-good">Spring 2027</span>' : '<span></span>'}
+        <span class="c-lead"><span class="c-title">${esc(c.t)}</span>${c.m & 1 ? '<span class="mark" aria-hidden="true">*</span><span class="sr-only">, on the Spring 2027 schedule</span>' : ''}</span>
         <span class="catalog-units">${esc(c.u)} ${c.u === 1 ? 'unit' : 'units'}</span>
       </summary><div class="catalog-body">${lines.join('')}</div></details>`;
   }
@@ -42,7 +44,7 @@
   function render() {
     const hits = matches();
     $('count').textContent = `${hits.length.toLocaleString()} ${hits.length === 1 ? 'course' : 'courses'}`;
-    $('list').innerHTML = hits.slice(0, shown).map(row).join('') || '<p style="padding:18px;color:var(--muted)">No courses match. Try a broader search.</p>';
+    $('list').innerHTML = hits.slice(0, shown).map(row).join('') || '<p class="catalog-empty">' + ($('when').value === 'all' ? 'No courses match. Try a broader search.' : 'No courses match in this list. Try “All undergraduate courses”.') + '</p>';
     $('more').hidden = hits.length <= shown;
   }
   function refresh() { shown = PAGE; render(); }
@@ -56,7 +58,9 @@
     render();
   }).catch(() => { $('catalog-sub').textContent = 'Courses couldn’t be loaded. Refresh and try again.'; });
 
-  $('q').addEventListener('input', refresh);
+  // wait for a pause in typing so the result count isn't announced on every keystroke
+  let typing = null;
+  $('q').addEventListener('input', () => { clearTimeout(typing); typing = setTimeout(refresh, 250); });
   $('subject').addEventListener('change', refresh);
   $('when').addEventListener('change', refresh);
   $('more').addEventListener('click', () => { shown += PAGE; render(); });

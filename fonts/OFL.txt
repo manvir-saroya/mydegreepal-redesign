@@ -1,0 +1,3 @@
+Libre Caslon Display (Impallari Type) and Public Sans (USWDS) are licensed under the SIL Open Font License 1.1.
+https://openfontlicense.org/open-font-license-official-text/
+Downloaded from Google Fonts (latin subset) on 2026-11-03 and self-hosted.
