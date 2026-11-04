@@ -197,8 +197,6 @@
           reqNeeds,
           choiceText: firstText(sub, 'fromcourselist'),
           choices,
-          evidence: unique(takenCourses(sub)),
-          text: textOf(sub).slice(0, 600),
         });
       }
     }

@@ -8,7 +8,6 @@
   const { normalizeCode, classifyEntry, GRADE_POINTS } = Audit;
   const FIRST_TERM = 'Spring 2027'; // the term with a real published schedule
   const BIT = { S27: 1, F26: 2, S26: 4, F25: 8, S25: 16, U26: 32 };
-  const SPRING = BIT.S27 | BIT.S26 | BIT.S25;
   const FALL = BIT.F26 | BIT.F25;
   const SEASONS = ['Spring', 'Summer', 'Fall'];
   const STANDING = { Freshman: 0, Sophomore: 30, Junior: 60, Senior: 90 };
@@ -172,9 +171,8 @@
     // the Entry Level Writing Requirement needs WRI 001 at C or better (General Catalog 2026-27, navoid 3664)
     const satisfiedByHistory = (code) => hasCredit(code, code === 'WRI 001' ? 'C' : 'C-');
     const takenTitles = new Set();
-    for (const [code, list] of history) {
+    for (const code of history.keys()) {
       if (satisfiedByHistory(code) && courses[code]) takenTitles.add(`${courses[code].t}|${courses[code].u}`);
-      void list;
     }
 
     // items in the plan
@@ -609,7 +607,6 @@
         const u = bundleUnits(entry[1]);
         if (units + u > cap && units > 0) continue;
         if (units >= load) break;
-        if (u > cap && units === 0 && !isSlot(entry[1][0])) { /* oversized single class: allow alone */ }
         chosen.push(entry);
         units += u;
       }
@@ -694,10 +691,9 @@
       onTime: targetIndex && !audit.undeclared ? (!stuck.length && (graduationIndex === null || graduationIndex <= targetIndex)) : null,
       classCount: allItems.filter((i) => !isSlot(i)).length,
       slotCount: allItems.filter(isSlot).length,
-      flexibleCount: allItems.filter((i) => isSlot(i) || i.kind === 'choice').length,
       plannedUnits: allItems.reduce((s, i) => s + i.units, 0),
       earnedUnits: earned, inProgressUnits: current, degreeUnits,
-      openRules: open.length, review,
+      review,
       manualRules: skipped.map((r) => r.label || r.group),
       stuck,
     };

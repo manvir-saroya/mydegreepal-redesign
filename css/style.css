@@ -21,7 +21,6 @@
   --rule-strong: #858fa3;
   --flag: #a3311f;
   --hood: var(--foil);
-  --hood-ink: var(--cover);
   --display: "Caslon Display", "Libre Caslon Display", Georgia, serif;
   --sans: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -29,12 +28,12 @@
 }
 
 /* academic hood velvet by discipline (American Council on Education costume code) */
-.hood-engineering { --hood: #e8742a; --hood-ink: #2b1405; }
-.hood-science { --hood: #f2b705; --hood-ink: #2b2000; }
-.hood-arts { --hood: #f7f5f0; --hood-ink: #14213d; }
-.hood-economics { --hood: #b8692f; --hood-ink: #fff; }
-.hood-business { --hood: #c4ad7c; --hood-ink: #231b0a; }
-.hood-health { --hood: #f2907c; --hood-ink: #2e0f08; }
+.hood-engineering { --hood: #e8742a; }
+.hood-science { --hood: #f2b705; }
+.hood-arts { --hood: #f7f5f0; }
+.hood-economics { --hood: #b8692f; }
+.hood-business { --hood: #c4ad7c; }
+.hood-health { --hood: #f2907c; }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--rule-strong) var(--ground); }
@@ -74,7 +73,7 @@ button { cursor: pointer; }
 .site-header :focus-visible, .cover :focus-visible, .plan-cover :focus-visible, .whatif :focus-visible { outline-color: var(--foil); }
 
 /* ---- footer: colophon ---------------------------------------------------------- */
-.site-footer { margin-top: 0; padding: 22px 0 28px; color: var(--ink-2); font-size: 14px; }
+.site-footer { padding: 22px 0 28px; color: var(--ink-2); font-size: 14px; }
 .site-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .site-footer a { color: var(--ink-2); }
 
@@ -187,7 +186,7 @@ button { cursor: pointer; }
 
 /* units measure: earned, in progress, planned, against what the degree requires */
 .measure { display: grid; gap: 10px; }
-.bar { position: relative; display: flex; height: 12px; gap: 3px; }
+.bar { display: flex; height: 12px; gap: 3px; }
 .bar span { display: block; height: 100%; }
 .b-done { background: var(--ink); }
 .b-now { background: repeating-linear-gradient(135deg, var(--ink) 0 1.5px, transparent 1.5px 5px); box-shadow: inset 0 0 0 1.5px var(--ink); }
