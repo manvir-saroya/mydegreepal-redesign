@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyDegreePal — Your exact path to graduation</title>
+  <meta name="description" content="Upload your UC Merced degree audit and get every class you need, semester by semester, to graduate on time.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" id="home-link">
+        <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f3c04d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c3 2.5 9 2.5 12 0v-4.5"/></svg></span>
+        MyDegreePal
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Planner</a>
+        <a href="catalog.html">Catalog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="landing" class="wrap">
+      <div class="hero">
+        <h1>Your exact path to graduation</h1>
+        <p class="lede">Upload your degree audit and get every class you need, semester by semester.</p>
+        <div class="dropzone" id="dropzone">
+          <span class="btn btn-primary">Upload your audit</span>
+          <input id="audit-file" type="file" accept=".html,.htm" aria-label="Upload your degree audit">
+          <p class="hint">Drop your saved audit here. It stays in your browser and is never uploaded.</p>
+        </div>
+        <p class="upload-error" id="upload-error" role="alert" hidden></p>
+        <p class="alt-action">Just looking? <button class="link-btn" id="sample-btn" type="button">See a sample plan</button></p>
+      </div>
+
+      <ol class="steps" aria-label="How to get your audit">
+        <li><strong>Run your audit</strong>In Chrome, open <a href="https://ucmerced.uachieve.com/selfservice/" target="_blank" rel="noreferrer">MyDegreePath</a>, then choose Run Program and View Audit. Undeclared? Choose Select a Different Program to run a What-If audit.</li>
+        <li><strong>Save the page</strong>Right-click a blank area, choose Save as, then pick “Webpage, HTML Only”.</li>
+        <li><strong>Upload it here</strong>You’ll see your classes for every semester through graduation.</li>
+      </ol>
+
+      <div class="notice">
+        <span><strong>Spring 2027 registration:</strong> November 2–13</span>
+        <span class="notice-links">
+          <a href="https://registrar.ucmerced.edu/schedules/academic-calendar/academic-calendar-2026-2027" target="_blank" rel="noreferrer">Official dates</a>
+          <a href="https://registrar.ucmerced.edu/register" target="_blank" rel="noreferrer">Registration guide</a>
+        </span>
+      </div>
+    </section>
+
+    <section id="plan" class="wrap plan" hidden></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>An independent student project, not affiliated with UC Merced. Always confirm your plan with your advisor.</span>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+  <script src="js/audit.js"></script>
+  <script src="js/planner.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
