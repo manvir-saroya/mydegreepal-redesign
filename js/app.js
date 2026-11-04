@@ -268,7 +268,8 @@
       </div>
       <div class="control">
         <span class="label" id="units-label">Max units per semester</span>
-        <div class="segments" role="group" aria-labelledby="units-label">${units}</div>
+        <div class="segments" role="group" aria-labelledby="units-label" aria-describedby="units-hint">${units}</div>
+        <p class="control-hint" id="units-hint">18 is the most without a petition.</p>
       </div>
       <div class="control">
         <span class="label">Summer</span>
@@ -384,6 +385,10 @@
 
   function railHtml(plan) {
     const checks = [...plan.warnings];
+    const onTime = P.onTimeTerm(state.audit);
+    if (onTime && plan.graduation && P.parseTerm(plan.graduation) > P.nextTerm(onTime.index, false)) {
+      checks.push('This plan runs past your 9th semester. UC Merced first-year students normally finish in 8, and going past 9 needs your School’s approval. Talk with your advisor.');
+    }
     if (state.audit.preparedOn) checks.push(`Based on your audit from ${state.audit.preparedOn}. Rerun it after grades post.`);
     const manual = [...new Set([...plan.review, ...plan.manualRules])].slice(0, 8);
     return `<aside class="rail" aria-label="Plan notes">
@@ -394,6 +399,28 @@
           <li>Review this plan with your advisor. It doesn’t replace official advising.</li></ul>
       </div>
       ${manual.length ? `<div class="panel"><h2>Check on your audit</h2><p>We couldn’t plan these automatically:</p><ul>${manual.map((m) => `<li>${esc(m)}</li>`).join('')}</ul></div>` : ''}
+      <div class="panel">
+        <h2>Spring 2027 dates</h2>
+        <ul>
+          <li>Instruction: Jan 19 – May 7, 2027</li>
+          <li>Add classes online by Jan 25</li>
+          <li>Drop classes by Feb 8</li>
+          <li>Withdraw (W grade): Feb 9 – Apr 6</li>
+        </ul>
+        <p class="source"><a href="https://registrar.ucmerced.edu/schedules/academic-calendar/academic-calendar-2026-2027" target="_blank" rel="noreferrer">Official academic calendar</a></p>
+      </div>
+      <div class="panel">
+        <h2>UC Merced rules this plan uses</h2>
+        <ul>
+          <li>Class standing: sophomore at 30 units, junior at 60, senior at 90.</li>
+          <li>Up to 18 units a semester without a petition; 12 or more is full time.</li>
+          <li>Up to 12 units in summer.</li>
+          <li>120 units to graduate, or the total your audit lists.</li>
+          <li>On time means 8 Fall and Spring semesters from your first.</li>
+          <li>Prerequisites need C- or better; WRI 001 needs C or better.</li>
+        </ul>
+        <p class="source"><a href="https://catalog.ucmerced.edu/content.php?catoid=26&amp;navoid=3600" target="_blank" rel="noreferrer">From the 2026–27 General Catalog</a>, checked November 3, 2026.</p>
+      </div>
       <div class="panel no-print">
         <h2>Before you register</h2>
         <ul>

@@ -273,6 +273,9 @@ button { cursor: pointer; }
 .panel ul { margin: 0; padding-left: 18px; display: grid; gap: 7px; color: var(--ink-2); }
 .panel p { color: var(--ink-2); }
 .panel p + ul { margin-top: 8px; }
+.panel .source { margin-top: 10px; font-size: 13.5px; }
+.panel .source a { color: var(--ink-2); }
+.control-hint { margin-top: 6px; font-size: 13px; color: var(--ink-2); }
 
 .done { padding: 34px 0 10px; text-align: center; }
 .done h2 { font-family: var(--display); font-size: 34px; }

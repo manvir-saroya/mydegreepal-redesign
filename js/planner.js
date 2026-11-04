@@ -169,7 +169,8 @@
       }
       return false;
     }
-    const satisfiedByHistory = (code) => hasCredit(code, 'C-');
+    // the Entry Level Writing Requirement needs WRI 001 at C or better (General Catalog 2026-27, navoid 3664)
+    const satisfiedByHistory = (code) => hasCredit(code, code === 'WRI 001' ? 'C' : 'C-');
     const takenTitles = new Set();
     for (const [code, list] of history) {
       if (satisfiedByHistory(code) && courses[code]) takenTitles.add(`${courses[code].t}|${courses[code].u}`);
